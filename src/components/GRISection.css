@@ -1,0 +1,30 @@
+/* GRI styles are scoped to this component so they do not affect other sections. */
+.gri-section { overflow: hidden; }
+.gri-heading { display: grid; grid-template-columns: 1.1fr .9fr; gap: 2rem; align-items: end; margin: 2rem 0 1.5rem; }
+.gri-heading h2 { margin: .5rem 0 0; }
+.gri-heading > p { max-width: 34rem; margin: 0; color: var(--muted, #a6a9b2); line-height: 1.7; }
+.gri-carousel { width: 100%; }
+.gri-stage { position: relative; display: grid; place-items: center; min-height: clamp(300px, 42vw, 520px); perspective: 1200px; }
+.gri-card { position: absolute; top: 5%; left: 50%; width: min(54%, 440px); height: 90%; padding: 0; overflow: hidden; border: 1px solid rgba(255,255,255,.15); border-radius: 18px; background: #11151a; color: inherit; cursor: pointer; transform: translateX(-50%) scale(.82); opacity: 0; pointer-events: none; transition: transform .45s ease, opacity .45s ease, filter .45s ease; }
+.gri-card img { display: block; width: 100%; height: 100%; object-fit: contain; background: #0b0e12; }
+.gri-card-active { z-index: 3; opacity: 1; pointer-events: auto; transform: translateX(-50%) scale(1); box-shadow: 0 24px 70px rgba(0,0,0,.35); }
+.gri-card-next { z-index: 2; opacity: .58; pointer-events: auto; transform: translateX(34%) scale(.82) rotateY(-8deg); }
+.gri-card-previous { z-index: 1; opacity: .42; pointer-events: auto; transform: translateX(-134%) scale(.82) rotateY(8deg); }
+.gri-card-hidden { visibility: hidden; }
+.gri-card-shade { position: absolute; inset: 0; pointer-events: none; background: linear-gradient(180deg, rgba(0,0,0,.28), transparent 24%, transparent 72%, rgba(0,0,0,.38)); }
+.gri-card-index, .gri-card-open { position: absolute; top: 1rem; color: #fff; text-shadow: 0 1px 5px #000; }
+.gri-card-index { left: 1rem; font: 600 .72rem/1 monospace; letter-spacing: .08em; }
+.gri-card-open { right: 1rem; font-size: 1.2rem; }
+.gri-carousel-controls { display: flex; justify-content: space-between; align-items: center; gap: 1rem; margin: 1.25rem 0; }
+.gri-dots { display: flex; align-items: center; gap: .55rem; }
+.gri-dot { width: 8px; height: 8px; border: 0; border-radius: 99px; padding: 0; background: #656a72; cursor: pointer; transition: width .2s ease, background .2s ease; }
+.gri-dot-active { width: 26px; background: var(--accent, #b9f34a); }
+.gri-arrows { display: flex; gap: .5rem; }
+.gri-arrows button { width: 42px; height: 42px; border: 1px solid rgba(255,255,255,.2); border-radius: 50%; color: inherit; background: transparent; cursor: pointer; font-size: 1.25rem; }
+.gri-arrows button:hover, .gri-arrows button:focus-visible { border-color: var(--accent, #b9f34a); }
+.gri-caption { display: flex; justify-content: space-between; align-items: start; gap: 2rem; padding-top: 1.2rem; border-top: 1px solid rgba(255,255,255,.12); }
+.gri-caption h3 { margin: .4rem 0 0; }
+.gri-caption > p { max-width: 32rem; margin: .25rem 0 0; color: var(--muted, #a6a9b2); line-height: 1.7; }
+.gri-footnote { display: flex; justify-content: space-between; gap: 1rem; margin-top: 2rem; color: var(--muted, #a6a9b2); font: .7rem/1.5 monospace; letter-spacing: .07em; }
+@media (max-width: 700px) { .gri-heading { grid-template-columns: 1fr; gap: 1rem; } .gri-stage { min-height: 360px; } .gri-card { width: 72%; } .gri-card-next { transform: translateX(23%) scale(.78); } .gri-card-previous { transform: translateX(-123%) scale(.78); } .gri-caption { flex-direction: column; gap: .75rem; } .gri-footnote { flex-direction: column; } }
+@media (prefers-reduced-motion: reduce) { .gri-card, .gri-dot { transition: none; } }
